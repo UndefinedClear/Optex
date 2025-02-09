@@ -14,8 +14,8 @@ function getScript(path) {
     return fs.readFileSync(`static/scripts/${path}`, 'utf8');
 }
 
-function getImage(path) {
-    return fs.readFileSync(`static/images/${path}`, 'utf8');
+function getImage(res, path) {
+    res.sendFile(__dirname + `/static/images/${path}`);
 }
 
 const data = {
@@ -25,6 +25,10 @@ const data = {
 // PAGES
 app.get('/', (req, res) => {
     res.send(getTemplate('index.html'));
+});
+
+app.get('/test', (req, res) => {
+    res.send(getTemplate('test.html'));
 });
 
 // CSS
@@ -46,9 +50,13 @@ app.get('/scripts/Notifications', (req, res) => {
 });
 
 // IMAGES
+// app.get('/images/icon', (req, res) => {
+//     res.type('image/jpeg');  // Устанавливаем MIME-тип для Js
+//     res.send(getImage('icon.jpg'));
+// });
+
 app.get('/images/icon', (req, res) => {
-    res.type('image/jpeg');  // Устанавливаем MIME-тип для Js
-    res.send(getImage('icon.jpg'));
+    getImage(res, 'icon.jpg');
 });
 
 // app.get('/api', (req, res) => {
