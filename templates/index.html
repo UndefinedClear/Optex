@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Онлайн-школа программирования Unixru - курсы по Python, Java, веб-разработке. Обучение для начинающих и продвинутых студентов.">
+    <title>Unixru — Онлайн-школа программирования</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="/styles/mainPage" rel="stylesheet">
+    <link rel="icon" href="images/icon">
+
+    <link rel="stylesheet" href="/styles/Notifications">
+</head>
+<body>
+
+<header id="header">
+    <h1>Unixru — Мы научим вас <strong>программировать!</strong></h1>
+    <p>Онлайн-школа программирования для начинающих и продвинутых студентов. Гибкость, индивидуальный подход и качественное обучение — всё это мы предлагаем для ваших детей!</p>
+    <a href="#courses" class="btn">Посмотреть курсы</a>
+
+    <h2 id="scroll_down" style="color: #ff4d88; transform: scale(1.5);">Прокрутите вниз! :)</h2>
+</header>
+
+<section class="fade-in">
+    <h2>Почему выбирают нас?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature">
+                <h3>Гибкое расписание</h3>
+                <p>Учитесь в удобное время и из любой точки мира. Мы подстроим занятия под ваш график!</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature">
+                <h3>Хороший персонал</h3>
+                <p>Наши преподаватели находят подход к каждому ученику и объясняют материал с учётом его интересов и уровня знаний.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature">
+                <h3>Индивидуальный подход</h3>
+                <p>Ваша учёба будет идти в комфортном темпе, и вам не нужно догонять программу — занятия с индивидуальным учителем сделают обучение максимально эффективным.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="courses" class="fade-in">
+    <h2>Что мы преподаём?</h2>
+    <p>Мы предлагаем курсы по основным направлениям программирования, которые актуальны на рынке труда:</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="course">
+                <h3>Веб-разработка</h3>
+                <p>Это набор технологий для создания сайтов. С нами вы сможете сделать свой собственный веб-проект!</p>
+                <p><em>(Этот сайт тоже создан с использованием этих технологий!)</em></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="course">
+                <h3>Java</h3>
+                <p>Мощный и универсальный язык программирования, на котором работает множество популярных приложений (например, Minecraft).</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="course">
+                <h3>Python</h3>
+                <p>Простой и удобный для начинающих язык программирования, который используется для создания сайтов, чат-ботов и автоматизации процессов.</p>
+            </div>
+        </div>
+    </div>
+    <a href="#enroll" class="btn">Записаться на курс</a>
+</section>
+
+<footer>
+    <p>&copy; 2024 Unixru. Все права защищены.</p>
+</footer>
+
+<script src="/scripts/Notifications"></script>
+
+<script>
+    function poshalka() {
+        var notifications = new Notifications('', '', '')
+        notifications.show('Мы любим мемы! Промокод: "MEMES2024" 10% скидка!', 'success');
+    }
+
+
+    // Эффект появления элементов при прокрутке
+    window.addEventListener('scroll', function () {
+        const h2_scroll_down = document.getElementById('scroll_down');
+        const header = document.getElementById('header');
+        h2_scroll_down.innerHTML = 'Пока!<button style="background-color: transparent; border: none; font-size: 40px;" onclick="poshalka()">😭</button>';
+        setTimeout(() => {
+            h2_scroll_down.classList.add('invisible');
+            header.classList.add('header_after_scroll');
+        }, 1000);
+
+        let fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(function (element) {
+            if (element.getBoundingClientRect().top < window.innerHeight) {
+                element.classList.add('visible');
+            }
+        });
+    });
+</script>
+
+<script>
+    setInterval(() => {
+        if (location.href.endsWith('#enroll')) {
+            location.href = "https://t.me/unixruBot";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
