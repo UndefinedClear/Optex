@@ -2,7 +2,7 @@
 
 Antivirus with web-panel to control
 
-[](<images/logo.jpg>)
+<img src="https://raw.githubusercontent.com/UndefinedClear/Optex/refs/heads/main/images/logo.jpg">
 
 > [!TIP]
 > [Download](<link>)
